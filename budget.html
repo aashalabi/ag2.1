@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Page Title</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+</style>
+<script src=""></script>
+<body>
+
+
+  <p> Enter you personal Information<BR></p>
+    <label for="fname">Name:</label>
+  <input  type="text" name="income" id="income1"/>
+ 
+  <label for="Email">Email:</label>
+  <input  type="text" name="Email" id="income1"/>  
+
+  <label for="Age">Age:</label>
+  <input  type="text" name="Age" id="Age"/>  
+
+  <p> <br> </p>      
+        <table class="w3-border">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>Value</th>
+                            <th>Expense%</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Total Income</td>
+                            <td><input  type="text" name="income" id="income1"/><br></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Expenses</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Rent</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp1"/></td>
+                            <td><input  type="text" name="percent" id="per1" readonly/></td>
+                          </tr>
+                          <tr>
+                            <td>Insurance</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp2"/></td>
+                            <td><input  type="text" name="percent" id="per2" readonly/></td>
+                          </tr>
+                          <tr>
+                            <td>Utilities</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp3"/></td>
+                            <td><input  type="text" name="percent" id="per3" readonly/></td>
+                          </tr>
+                          <tr>
+                            <td>Food</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp4"/></td>
+                            <td><input  type="text" name="percent" id="per4" readonly/></td>
+                          </tr>
+                          <tr>
+                            <td>Gas</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp5"/></td>
+                            <td><input  type="text" name="percent" id="per5" readonly/></td>
+                          </tr>
+                          <tr>
+                            <td>Day Care</td>
+                            <td><input onblur="findTotal()" type="text" name="exp" id="exp6"/></td>
+                            <td><input  type="text" name="percent" id="per6" readonly/></td>
+                          </tr>
+                          <tr>
+                              <td>School Fees</td>
+                              <td><input onblur="findTotal()" type="text" name="exp" id="exp7"/></td>
+                              <td><input  type="text" name="percent" id="per7" readonly/></td>
+                            </tr>
+                          <tr>
+                            <td>Total Expenses</td>
+                            <td><input  type="text" name="expTotal" id="expt" readonly/></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                        </table>
+        <script type="text/javascript">
+                function findTotal(){
+                        var arr = document.getElementsByName('exp');
+                        var arrp = document.getElementsByName('percent');
+                        var p = 0.0;
+                        var tot=0;
+                        for(var i=0;i<arr.length;i++){
+                        if(parseInt(arr[i].value))
+                                tot += parseInt(arr[i].value);
+                        }
+                        var e = document.getElementById('expt');
+                        e.value = tot;
+
+                        for(var i=0;i<arr.length;i++){
+                                if(parseInt(arr[i].value)){
+                                        p = (parseFloat(arr[i].value)/tot)*100;
+                                        arrp[i].value = p.toFixed(2);
+                                        console.log("percent", p);
+                                }
+                        }
+                        
+        }
+                
+        </script>
+</body>
+</html>
